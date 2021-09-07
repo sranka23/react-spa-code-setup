@@ -35,3 +35,8 @@ _Note : All environment variables should be prefixed with REACT_APP. eg: MODE sh
 ## Routing
 
 We will be using react router to setup routing. Refer [React Router](https://reactrouter.com/web/guides/quick-start) documentation for details and implementation examples.
+
+
+## To Do 
+
+1. State management setup (Redux)
