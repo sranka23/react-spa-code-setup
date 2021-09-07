@@ -1,0 +1,62 @@
+{
+  "name": "react-spa-code-setup",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^7.0.1",
+    "cross-env": "^7.0.3",
+    "env-cmd": "^10.1.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.1",
+    "flow-bin": "^0.158.0",
+    "husky": "^7.0.1",
+    "jest-dom": "^4.0.0",
+    "jest-environment-jsdom-sixteen": "^2.0.0",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
+  },
+  "scripts": {
+    "start": "env-cmd -f .env.dev react-scripts start",
+    "build": "env-cmd -f .env.build react-scripts build",
+    "test": "react-scripts test --coverage --testMatch='**/*.test.js' --watchAll=false --env=jest-environment-jsdom-sixteen",
+    "lint": "prettier --write 'src/**/(*.js|*.jsx|*.json|*.css)' && stylelint src/**/*.css --fix && eslint ./src --fix && flow",
+    "eject": "react-scripts eject",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged -- --allow-empty"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "lint-staged": {
+    "src/**/*.{js,jsx,json, css}": "prettier --write 'src/**/(*.js|*.jsx|*.json|*.css)'",
+    "src/**/*.{js,jsx,json}": "eslint ./src --fix",
+    "src/**/*.css": "stylelint --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  }
+}
